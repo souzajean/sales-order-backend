@@ -22,17 +22,21 @@ File or Folder | Purpose
 
 ## Config Git
 
+```ini
 [user]
-	name = Jean Cardoso de Souza
-	email = blahjeancs1@hotmail.com
+    name = Jean Cardoso de Souza
+    email = blahjeancs1@hotmail.com
+
 [credential]
     helper = store
+
 [core]
     editor = code --wait
+
 [alias]
-    s = !git status -s
-    c = !git add --all && git commit -m
-    l = !git log --pretty=format:'%C(blue)%h%C(red)%d %C(white)%s - %C(cyan)%cn, %C(green)%cr'
+    s  = !git status -s
+    c  = !git add --all && git commit -m
+    l  = !git log --pretty=format:'%C(blue)%h%C(red)%d %C(white)%s - %C(cyan)%cn, %C(green)%cr'
     cm = !git checkout master && git pull origin master
     cn = !git add --all && git commit --no-verify -m
     pu = !git pull origin
