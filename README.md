@@ -42,3 +42,11 @@ File or Folder | Purpose
     pu = !git pull origin
     po = !git push origin
     pon = !git push origin --no-verify
+
+
+    #Query
+    http://localhost:4004/odata/v4/main/SalesOrderHeaders?$expand=items($expand=product($select=id,name))
+
+
+    #Adicionar dados simulados
+    cds add data --records 10 --out test/data
