@@ -50,3 +50,8 @@ File or Folder | Purpose
 
     #Adicionar dados simulados
     cds add data --records 10 --out test/data
+
+    #Adicionar SQLite
+    Crontol + Shifth + P
+    cds deploy -2 sqlite:db.sqlite
+    sudo apt install sqlite3
