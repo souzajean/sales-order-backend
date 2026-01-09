@@ -55,3 +55,9 @@ File or Folder | Purpose
     Crontol + Shifth + P
     cds deploy -2 sqlite:db.sqlite
     sudo apt install sqlite3
+     yarn add -D tsx @cap-js/cds-typer typescript @types/node
+     yarn tsc --init
+     yarn tsc
+     yarn add -D @types/axios
+     node dist/srv/main.js
+     yarn tsx srv/main.ts

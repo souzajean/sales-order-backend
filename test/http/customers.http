@@ -45,3 +45,10 @@ Content-Type: application/json
   "lastName": "Cardoso Souza",
 }
 
+### SEARCH – Buscando dados com o Customer $search
+GET {{baseUrl}}/Customers?$search=098
+Content-Type: application/json
+
+### ORDE – Ordenando dados com o OrderBy $orderby
+GET {{baseUrl}}/Customers?$orderby=firstName asc
+Content-Type: application/json
