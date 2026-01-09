@@ -61,3 +61,7 @@ File or Folder | Purpose
      yarn add -D @types/axios
      node dist/srv/main.js
      yarn tsx srv/main.ts
+     npx @cap-js/cds-typer srv/main.cds
+     rm -rf node_modules yarn.lock
+     yarn
+     

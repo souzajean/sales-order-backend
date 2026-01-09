@@ -22,11 +22,6 @@ export default (service: Service) => {
             return request.reject(400, 'Customer inválido');
         }
 
-        // 2️⃣ valida itens
-        if (!params.items || params.items.length === 0) {
-            return request.reject(400, 'Itens inválidos');
-        }
-
         // 3️⃣ busca customer no banco
         const customer = await cds.run(
             cds.ql.SELECT.one
