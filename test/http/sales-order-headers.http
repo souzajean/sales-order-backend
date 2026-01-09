@@ -1,20 +1,26 @@
 @baseUrl = http://localhost:4004/odata/v4/main
-@id=7240989-abd8-4cbc-a3f3-deecfb02c4f8'
+@id = ddce99d2-cd58-4fea-8767-e12e6b7cb590
 @customerId = abc2e239-0ddd-4674-b3cf-9a9c2accca1c
 @productId = 29801137-ad77-4ba8-b161-2c43d2e204ae
 
 
 
 
+############################################
+# GET – Seleciona pedido (CAP IDs)
+############################################
 GET {{baseUrl}}/SalesOrderHeaders?filter=id eq "{{id}}"&$expand=items
 Content-Type: application/json
 
-###
 
+
+
+
+
+###
 ############################################
 # POST – Criar novo pedido (CAP gera IDs)
 ############################################
-
 POST {{baseUrl}}/SalesOrderHeaders
 Content-Type: application/json
 
@@ -37,25 +43,34 @@ Content-Type: application/json
   ]
 }
 
-###
 
+
+
+###
+############################################
+# DELETE – Deletar pedido
+############################################
 DELETE  {{baseUrl}}/SalesOrderHeaders(id={{id}})
 Content-Type: application/json
 
 
-###
 
+
+
+###
 ############################################
 # PATCH – Atualizar valor total do pedido
 ############################################
-
-
 PATCH {{baseUrl}}/SalesOrderHeaders(id={{id}})
 Content-Type: application/json
 
 {
-  "totalAmount": 250.00
+  "totalAmount": 99.99,
+  "items": [
+    {
+      "product_id": "{{productId}}",
+      "quantity": 100,
+      "price": 1.99
+    }
+  ]
 }
-
-
-###
