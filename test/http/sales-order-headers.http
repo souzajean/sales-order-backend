@@ -1,6 +1,6 @@
 @baseUrl = http://localhost:4004/odata/v4/main
 @id=7240989-abd8-4cbc-a3f3-deecfb02c4f8'
-@customerId = 14092835-703c-4825-974a-b70bf860069a
+@customerId = abc2e239-0ddd-4674-b3cf-9a9c2accca1c
 @productId = 29801137-ad77-4ba8-b161-2c43d2e204ae
 
 
@@ -19,6 +19,7 @@ POST {{baseUrl}}/SalesOrderHeaders
 Content-Type: application/json
 
 {
+  "id": "{{id}}",
   "customer_id": "{{customerId}}",
   "totalAmount": 398,
   "items": [
@@ -28,6 +29,7 @@ Content-Type: application/json
       "price": 2.99
     },
     {
+      "id": "{{id}}",
       "product_id": "{{productId}}",
       "quantity": 10,
       "price": 2.98
@@ -35,10 +37,9 @@ Content-Type: application/json
   ]
 }
 
-
 ###
 
-DELETE {{baseUrl}}/SalesOrderHeaders(id={{id}})
+DELETE  {{baseUrl}}/SalesOrderHeaders(id={{id}})
 Content-Type: application/json
 
 
