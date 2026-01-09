@@ -116,3 +116,33 @@ GET {{baseUrl}}/SalesOrderHeaders?$expand=items($expand=product;$filter=quantity
 Content-Type: application/json
 
 ############################################
+
+###
+############################################
+# GET – Select - Selecionar customer e id so sales orger hearders
+GET {{baseUrl}}/SalesOrderHeaders?$select=id,customer&$expand=customer($select=id,email)
+Content-Type: application/json
+############################################
+
+###
+############################################
+# GET – Descobrindo a quantidade de registro
+
+
+GET {{baseUrl}}/SalesOrderHeaders/$count
+Content-Type: application/json
+
+###
+
+#Paginadno os registros
+GET {{baseUrl}}/SalesOrderHeaders?$skip=5
+Content-Type: application/json
+
+
+###
+
+#Paginadno os registros com skip e top
+GET {{baseUrl}}/SalesOrderHeaders?$skip=1&$top=5
+Content-Type: application/json
+
+############################################
