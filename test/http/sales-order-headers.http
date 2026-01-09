@@ -1,23 +1,60 @@
-@localhost=localhost:4004/odata/v4/main
+@baseUrl = http://localhost:4004/odata/v4/main
+@id=7240989-abd8-4cbc-a3f3-deecfb02c4f8'
+@customerId = 14092835-703c-4825-974a-b70bf860069a
+@productId = 29801137-ad77-4ba8-b161-2c43d2e204ae
 
-GET http://{{localhost}}/SalesOrderHeaders
+
+
+
+GET {{baseUrl}}/SalesOrderHeaders?filter=id eq "{{id}}"&$expand=items
 Content-Type: application/json
 
 ###
 
-POST http://{{localhost}}/SalesOrderHeaders
+############################################
+# POST – Criar novo pedido (CAP gera IDs)
+############################################
+
+POST {{baseUrl}}/SalesOrderHeaders
 Content-Type: application/json
 
-{}
+{
+  "customer_id": "{{customerId}}",
+  "totalAmount": 398,
+  "items": [
+    {
+      "product_id": "{{productId}}",
+      "quantity": 10,
+      "price": 2.99
+    },
+    {
+      "product_id": "{{productId}}",
+      "quantity": 10,
+      "price": 2.98
+    }
+  ]
+}
+
 
 ###
 
-DELETE  http://{{localhost}}/SalesOrderHeaders(id=99e0ceb9-2863-4b55-ac68-adb1cbd7efb3)
+DELETE {{baseUrl}}/SalesOrderHeaders(id={{id}})
 Content-Type: application/json
+
 
 ###
 
-PUT   http://{{localhost}}/SalesOrderHeaders(id=99e0ceb9-2863-4b55-ac68-adb1cbd7efb3)
+############################################
+# PATCH – Atualizar valor total do pedido
+############################################
+
+
+PATCH {{baseUrl}}/SalesOrderHeaders(id={{id}})
 Content-Type: application/json
 
-{}
+{
+  "totalAmount": 250.00
+}
+
+
+###

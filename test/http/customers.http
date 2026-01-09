@@ -1,22 +1,43 @@
-@localhost=localhost:4004/odata/v4/main
+@baseUrl = http://localhost:4004/odata/v4/main
+@id = 0e21abb6-0a7e-4899-8412-bd204194e232
 
-GET http://{{localhost}}/Customers
+
+### GET – listar clientes
+GET {{baseUrl}}/Customers
 Content-Type: application/json
 
-###
 
-POST http://{{localhost}}/SalesOrderHeaders
+### POST – criar cliente
+POST {{baseUrl}}/Customers
 Content-Type: application/json
 
 {
-    "id": "3134bfd8-0683-4393-bd3f-ac24ae652d00",
-    "firstName": "Jean",
-    "lastName": "Souza",
-    "email": "jean.cardosodesouza@gmail.com"
+  "id": "{{id}}",
+  "firstName": "Jean",
+  "lastName": "Souza",
+  "email": "jean.cardosodesouza@gmail.com"
 }
 
-# entity Customers : managed {
-#   key id: UUID;
-#   firstName : String(20);
-#   lastName  : String(100);
-#   email     : String(255);
+
+### DELETE – remover cliente
+DELETE {{baseUrl}}/Customers('{{id}}')
+Content-Type: application/json
+
+
+### PUT – atualizar todos exceto as chaves colocando o resto como nulo
+PUT  {{baseUrl}}/Customers('{{id}}')
+Content-Type: application/json
+
+{
+  "firstName": "Teste"
+}
+
+
+### PATCH – atualizar parcialmente (recomendado)
+PATCH {{baseUrl}}/Customers('{{id}}')
+Content-Type: application/json
+
+{
+  "firstName": "Teste"
+}
+
