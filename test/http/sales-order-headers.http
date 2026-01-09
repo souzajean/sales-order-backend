@@ -15,8 +15,6 @@ Content-Type: application/json
 
 
 
-
-
 ###
 ############################################
 # POST – Criar novo pedido (CAP gera IDs)
@@ -74,3 +72,47 @@ Content-Type: application/json
     }
   ]
 }
+
+
+
+###
+############################################
+# GET – Testando filtros
+#http://localhost:4004/odata/v4/main/SalesOrderHeaders?$filter=totalAmount%20ge%203768.44
+#http://localhost:4004/odata/v4/main/SalesOrderHeaders?$filter=totalAmount%20le%203768.44
+############################################
+GET {{baseUrl}}/SalesOrderHeaders?filter=id eq {{id}}&$expand=items
+Content-Type: application/json
+
+###
+GET {{baseUrl}}/SalesOrderHeaders?$filter=totalAmount ge 3768.44
+Content-Type: application/json
+
+###
+GET {{baseUrl}}/SalesOrderHeaders?$filter=totalAmount le 3768.44
+Content-Type: application/json
+
+
+###
+GET {{baseUrl}}/SalesOrderHeaders?filter=id eq "{{id}}"&$expand=items
+Content-Type: application/json
+
+###
+GET {{baseUrl}}/SalesOrderHeaders?$filter=totalAmount gt 57597.48
+Content-Type: application/json
+
+###
+############################################
+# GET – Expandindo Itens
+#http://localhost:4004/odata/v4/main/SalesOrderHeaders?$filter=totalAmount%20ge%203768.44
+#http://localhost:4004/odata/v4/main/SalesOrderHeaders?$filter=totalAmount%20le%203768.44
+
+GET {{baseUrl}}/SalesOrderHeaders?$filter=totalAmount gt 57597.48&$expand=items($expand=product),customer
+Content-Type: application/json
+
+###
+
+GET {{baseUrl}}/SalesOrderHeaders?$expand=items($expand=product;$filter=quantity le 58),customer
+Content-Type: application/json
+
+############################################

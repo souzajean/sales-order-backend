@@ -1,5 +1,5 @@
 @baseUrl = http://localhost:4004/odata/v4/main
-@id = 0e21abb6-0a7e-4899-8412-bd204194e232
+@id = abc2e239-0ddd-4674-b3cf-9a9c2accca1c
 
 
 ### GET – listar clientes
@@ -14,22 +14,25 @@ Content-Type: application/json
 {
   "id": "{{id}}",
   "firstName": "Jean",
-  "lastName": "Souza",
+  "lastName": "Cardoso",
   "email": "jean.cardosodesouza@gmail.com"
 }
 
 
+
 ### DELETE – remover cliente
-DELETE {{baseUrl}}/Customers('{{id}}')
+DELETE  {{baseUrl}}/Customers(id={{id}})
 Content-Type: application/json
+
 
 
 ### PUT – atualizar todos exceto as chaves colocando o resto como nulo
-PUT  {{baseUrl}}/Customers('{{id}}')
+PUT  {{baseUrl}}/Customers(id={{id}})
 Content-Type: application/json
 
 {
-  "firstName": "Teste"
+  "firstName": "Jean",
+  "lastName": "Cardoso de Souza"
 }
 
 
@@ -38,6 +41,7 @@ PATCH {{baseUrl}}/Customers('{{id}}')
 Content-Type: application/json
 
 {
-  "firstName": "Teste"
+  "firstName": "Jean"
+  "lastName": "Cardoso Souza",
 }
 
