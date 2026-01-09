@@ -1,6 +1,8 @@
 @baseUrl = http://localhost:4004/odata/v4/main
 @id = ddce99d2-cd58-4fea-8767-e12e6b7cb590
 @customerId = abc2e239-0ddd-4674-b3cf-9a9c2accca1c
+
+@customerId2 = 37240989-abd8-4cbc-a3f3-deecfb02c4f8
 @productId = 29801137-ad77-4ba8-b161-2c43d2e204ae
 
 
@@ -24,7 +26,7 @@ Content-Type: application/json
 
 {
   "id": "{{id}}",
-  "customer_id": "{{customerId}}",
+   "customer_id": "{{customerId}}",
   "totalAmount": 398,
   "items": [
     {
@@ -41,6 +43,23 @@ Content-Type: application/json
   ]
 }
 
+
+###
+############################################
+# POST – Validação do itens - srv/maim.ts
+
+        #if (!params.items || params.items.length === 0) {
+            #return request.reject(400, 'Itens inválidos');
+        #}
+############################################
+POST {{baseUrl}}/SalesOrderHeaders
+Content-Type: application/json
+
+{
+  "id": "{{id}}",
+   "customer_id": "{{customerId}}",
+  "totalAmount": 398
+}
 
 
 
