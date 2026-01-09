@@ -146,3 +146,15 @@ GET {{baseUrl}}/SalesOrderHeaders?$skip=1&$top=5
 Content-Type: application/json
 
 ############################################
+
+###
+############################################
+# Search – Buscar
+############################################
+GET {{baseUrl}}/SalesOrderHeaders?$search=bnvzp&$filter=totalAmount gt 57597.47
+
+###
+############################################
+# POST – Criar novo pedido (CAP gera IDs)
+############################################
+POST {{baseUrl}}/SalesOrderHeaders
