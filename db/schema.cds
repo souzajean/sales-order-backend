@@ -10,7 +10,7 @@ entity SalesOrderHeaders: managed {
 }
 
 entity SalesOrderItems {
-  key id: UUID;
+  key id   : UUID;
   header   : Association to SalesOrderHeaders;
   product  : Association to Products;
   quantity : Integer;
@@ -25,7 +25,8 @@ entity Customers : managed {
 }
 
 entity Products {
-  key id: UUID;
-  name  : String(255);
-  price : Decimal(15,2);
+  key id : UUID;
+  name   : String(255);
+  price  : Decimal(15,2);
+  stock  : Integer;
 }

@@ -1,9 +1,9 @@
 @baseUrl = http://localhost:4004/odata/v4/main
-@id = ddce99d2-cd58-4fea-8767-e12e6b7cb590
-@customerId = abc2e239-0ddd-4674-b3cf-9a9c2accca1c
-
-@customerId2 = 37240989-abd8-4cbc-a3f3-deecfb02c4f8
-@productId = 29801137-ad77-4ba8-b161-2c43d2e204ae
+@id = 37240989-abd8-4cbc-a3f3-deecfb02c4f8
+@customerId = 31426727-3bf7-48b7-972f-c9c5d3a6f5eb
+@productId1 = 6358761f-1aeb-44c0-976c-6bff6cafb12d
+#6358761f-1aeb-44c0-976c-6bff6cafb12d
+@productId2 = 29801137-ad77-4ba8-b161-2c43d2e204ae
 
 
 
@@ -30,13 +30,13 @@ Content-Type: application/json
   "totalAmount": 398,
   "items": [
     {
-      "product_id": "{{productId}}",
+      "product_id": "{{productId1}}",
       "quantity": 10,
       "price": 2.99
     },
     {
       "id": "{{id}}",
-      "product_id": "{{productId}}",
+      "product_id": "{{productId2}}",
       "quantity": 10,
       "price": 2.98
     }
@@ -51,7 +51,7 @@ Content-Type: application/json
         #if (!params.items || params.items.length === 0) {
             #return request.reject(400, 'Itens inválidos');
         #}
-############################################
+
 POST {{baseUrl}}/SalesOrderHeaders
 Content-Type: application/json
 
@@ -60,7 +60,7 @@ Content-Type: application/json
    "customer_id": "{{customerId}}",
   "totalAmount": 398
 }
-
+############################################
 
 
 ###
